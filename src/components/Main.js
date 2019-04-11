@@ -6,8 +6,9 @@ import nba from 'nba';
 
 export class Main extends React.Component {
   state = {
-    playerId: 201939,
-    playerInfo: {},
+    playerInfo: {
+        playerId: 201939,
+    },
   }
   componentDidMount() {
     nba.stats.playerInfo({ PlayerID: this.state.playerId })
@@ -22,13 +23,17 @@ export class Main extends React.Component {
       });
   }
 
+  loadPlayerInfo = () => {
+      
+  }
+
   render() {
     return (
         <div className="main">
         <SearchBar />
         <div className="player">
             <Profile playerInfo={this.state.playerInfo} />
-            <DataViewContainer playerId={this.state.playerId} />
+            <DataViewContainer playerId={this.state.playerInfo.playerId} />
         </div>
     </div>
     );
