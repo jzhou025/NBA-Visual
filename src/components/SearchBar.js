@@ -24,8 +24,9 @@ export class SearchBar extends React.Component {
             )
         });
     }
-    onSelect(value) {
-        console.log('onSelect', value);
+    onSelect = (value, {key: playerId}) => {
+        console.log('onSelect', value, playerId);
+        this.props.loadPlayerInfo(playerId);
     }
     render() {
         const { dataSource } = this.state;
