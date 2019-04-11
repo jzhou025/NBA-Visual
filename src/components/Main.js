@@ -1,6 +1,7 @@
 import React from 'react';
 import { DataViewContainer } from './DataViewContainer';
 import { Profile } from './Profile';
+import { SearchBar } from './SearchBar';
 import nba from 'nba';
 
 export class Main extends React.Component {
@@ -23,10 +24,13 @@ export class Main extends React.Component {
 
   render() {
     return (
-      <div className="main">
-        <Profile playerInfo={this.state.playerInfo}/>
-        <DataViewContainer playerId={this.state.playerId}/>
-      </div>
+        <div className="main">
+        <SearchBar />
+        <div className="player">
+            <Profile playerInfo={this.state.playerInfo} />
+            <DataViewContainer playerId={this.state.playerId} />
+        </div>
+    </div>
     );
   }
 }
